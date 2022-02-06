@@ -1,0 +1,449 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x626255D718108577",
+      "device": "xc7z020clg400-1",
+      "gen_directory": "../../../../ADV7180_Interface.gen/sources_1/bd/BT656_decode",
+      "name": "BT656_decode",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2021.2"
+    },
+    "design_tree": {
+      "axis_data_fifo_0": "",
+      "CbYCrY_UpSampler_0": "",
+      "BT656_0": "",
+      "YCbCr_2_RGB_0": "",
+      "axis_converter_0": ""
+    },
+    "interface_ports": {
+      "M_AXIS_0": {
+        "mode": "Master",
+        "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+        "vlnv": "xilinx.com:interface:axis_rtl:1.0"
+      }
+    },
+    "ports": {
+      "BT656_clk": {
+        "direction": "I"
+      },
+      "BT656": {
+        "direction": "I",
+        "left": "7",
+        "right": "0"
+      },
+      "reset": {
+        "type": "rst",
+        "direction": "I"
+      },
+      "m_clk": {
+        "type": "clk",
+        "direction": "I"
+      },
+      "o_data_0": {
+        "direction": "O",
+        "left": "23",
+        "right": "0"
+      },
+      "o_eol_0": {
+        "direction": "O"
+      },
+      "o_sof_0": {
+        "direction": "O"
+      },
+      "o_data_active_0": {
+        "direction": "O"
+      },
+      "h_blank_0": {
+        "direction": "O"
+      },
+      "v_blank_0": {
+        "direction": "O"
+      },
+      "field_id_0": {
+        "direction": "O"
+      }
+    },
+    "components": {
+      "axis_data_fifo_0": {
+        "vlnv": "xilinx.com:ip:axis_data_fifo:2.0",
+        "xci_name": "BT656_decode_axis_data_fifo_0_0",
+        "xci_path": "ip/BT656_decode_axis_data_fifo_0_0/BT656_decode_axis_data_fifo_0_0.xci",
+        "inst_hier_path": "axis_data_fifo_0",
+        "parameters": {
+          "FIFO_DEPTH": {
+            "value": "128"
+          },
+          "HAS_TLAST": {
+            "value": "1"
+          },
+          "IS_ACLK_ASYNC": {
+            "value": "1"
+          },
+          "TDATA_NUM_BYTES": {
+            "value": "3"
+          },
+          "TUSER_WIDTH": {
+            "value": "1"
+          }
+        }
+      },
+      "CbYCrY_UpSampler_0": {
+        "vlnv": "xilinx.com:module_ref:CbYCrY_UpSampler:1.0",
+        "xci_name": "BT656_decode_CbYCrY_UpSampler_0_0",
+        "xci_path": "ip/BT656_decode_CbYCrY_UpSampler_0_0/BT656_decode_CbYCrY_UpSampler_0_0.xci",
+        "inst_hier_path": "CbYCrY_UpSampler_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "CbYCrY_UpSampler",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "pix_clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "reset_n": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "data_valid": {
+            "direction": "I"
+          },
+          "data": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "ycbcr_valid": {
+            "direction": "O"
+          },
+          "y_out": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "cb_out": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "cr_out": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      },
+      "BT656_0": {
+        "vlnv": "xilinx.com:module_ref:BT656:1.0",
+        "xci_name": "BT656_decode_BT656_0_0",
+        "xci_path": "ip/BT656_decode_BT656_0_0/BT656_decode_BT656_0_0.xci",
+        "inst_hier_path": "BT656_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "BT656",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "bt656_data": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "llc": {
+            "direction": "I"
+          },
+          "reset_n": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "data": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "active_video": {
+            "direction": "O"
+          },
+          "h_blank": {
+            "direction": "O"
+          },
+          "v_blank": {
+            "direction": "O"
+          },
+          "field_id": {
+            "direction": "O"
+          }
+        }
+      },
+      "YCbCr_2_RGB_0": {
+        "vlnv": "xilinx.com:module_ref:YCbCr_2_RGB:1.0",
+        "xci_name": "BT656_decode_YCbCr_2_RGB_0_0",
+        "xci_path": "ip/BT656_decode_YCbCr_2_RGB_0_0/BT656_decode_YCbCr_2_RGB_0_0.xci",
+        "inst_hier_path": "YCbCr_2_RGB_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "YCbCr_2_RGB",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "y": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "cb": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "cr": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "r": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "g": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "b": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      },
+      "axis_converter_0": {
+        "vlnv": "xilinx.com:module_ref:axis_converter:1.0",
+        "xci_name": "BT656_decode_axis_converter_0_0",
+        "xci_path": "ip/BT656_decode_axis_converter_0_0/BT656_decode_axis_converter_0_0.xci",
+        "inst_hier_path": "axis_converter_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "axis_converter",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "i_data_y": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "i_data_cb": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "i_data_cr": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "i_data_active": {
+            "direction": "I"
+          },
+          "i_clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "i_reset",
+                "value_src": "constant"
+              }
+            }
+          },
+          "i_reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "i_h_blank": {
+            "direction": "I"
+          },
+          "i_v_blank": {
+            "direction": "I"
+          },
+          "i_field_id": {
+            "direction": "I"
+          },
+          "o_data": {
+            "direction": "O",
+            "left": "23",
+            "right": "0"
+          },
+          "o_eol": {
+            "direction": "O"
+          },
+          "o_sof": {
+            "direction": "O"
+          },
+          "o_data_active": {
+            "direction": "O"
+          },
+          "o_field_id": {
+            "direction": "O"
+          }
+        }
+      }
+    },
+    "interface_nets": {
+      "axis_data_fifo_0_M_AXIS": {
+        "interface_ports": [
+          "M_AXIS_0",
+          "axis_data_fifo_0/M_AXIS"
+        ]
+      }
+    },
+    "nets": {
+      "BT656_0_field_id": {
+        "ports": [
+          "BT656_0/field_id",
+          "axis_converter_0/i_field_id"
+        ]
+      },
+      "BT656_0_h_blank": {
+        "ports": [
+          "BT656_0/h_blank",
+          "h_blank_0",
+          "axis_converter_0/i_h_blank"
+        ]
+      },
+      "BT656_0_o_active_video": {
+        "ports": [
+          "BT656_0/active_video",
+          "CbYCrY_UpSampler_0/data_valid"
+        ]
+      },
+      "BT656_0_o_data": {
+        "ports": [
+          "BT656_0/data",
+          "CbYCrY_UpSampler_0/data"
+        ]
+      },
+      "BT656_0_o_data_cb": {
+        "ports": [
+          "CbYCrY_UpSampler_0/cb_out",
+          "YCbCr_2_RGB_0/cb"
+        ]
+      },
+      "BT656_0_o_data_cr": {
+        "ports": [
+          "CbYCrY_UpSampler_0/cr_out",
+          "YCbCr_2_RGB_0/cr"
+        ]
+      },
+      "BT656_0_o_data_y": {
+        "ports": [
+          "CbYCrY_UpSampler_0/y_out",
+          "YCbCr_2_RGB_0/y"
+        ]
+      },
+      "BT656_0_o_ycbcr_valid": {
+        "ports": [
+          "CbYCrY_UpSampler_0/ycbcr_valid",
+          "axis_converter_0/i_data_active"
+        ]
+      },
+      "BT656_0_v_blank": {
+        "ports": [
+          "BT656_0/v_blank",
+          "v_blank_0",
+          "axis_converter_0/i_v_blank"
+        ]
+      },
+      "CAM_LLC_1": {
+        "ports": [
+          "BT656_clk",
+          "axis_data_fifo_0/s_axis_aclk",
+          "CbYCrY_UpSampler_0/pix_clk",
+          "BT656_0/llc",
+          "YCbCr_2_RGB_0/clk",
+          "axis_converter_0/i_clk"
+        ]
+      },
+      "YCbCr_2_RGB_0_b": {
+        "ports": [
+          "YCbCr_2_RGB_0/b",
+          "axis_converter_0/i_data_cr"
+        ]
+      },
+      "YCbCr_2_RGB_0_g": {
+        "ports": [
+          "YCbCr_2_RGB_0/g",
+          "axis_converter_0/i_data_cb"
+        ]
+      },
+      "YCbCr_2_RGB_0_r": {
+        "ports": [
+          "YCbCr_2_RGB_0/r",
+          "axis_converter_0/i_data_y"
+        ]
+      },
+      "axis_converter_0_o_data": {
+        "ports": [
+          "axis_converter_0/o_data",
+          "o_data_0",
+          "axis_data_fifo_0/s_axis_tdata"
+        ]
+      },
+      "axis_converter_0_o_data_active": {
+        "ports": [
+          "axis_converter_0/o_data_active",
+          "o_data_active_0",
+          "axis_data_fifo_0/s_axis_tvalid"
+        ]
+      },
+      "axis_converter_0_o_eol": {
+        "ports": [
+          "axis_converter_0/o_eol",
+          "o_eol_0",
+          "axis_data_fifo_0/s_axis_tlast"
+        ]
+      },
+      "axis_converter_0_o_field_id": {
+        "ports": [
+          "axis_converter_0/o_field_id",
+          "field_id_0"
+        ]
+      },
+      "axis_converter_0_o_sof": {
+        "ports": [
+          "axis_converter_0/o_sof",
+          "o_sof_0",
+          "axis_data_fifo_0/s_axis_tuser"
+        ]
+      },
+      "i_data_0_1": {
+        "ports": [
+          "BT656",
+          "BT656_0/bt656_data"
+        ]
+      },
+      "m_axis_aclk_0_1": {
+        "ports": [
+          "m_clk",
+          "axis_data_fifo_0/m_axis_aclk"
+        ]
+      },
+      "proc_sys_reset_0_peripheral_aresetn": {
+        "ports": [
+          "reset",
+          "axis_data_fifo_0/s_axis_aresetn",
+          "CbYCrY_UpSampler_0/reset_n",
+          "BT656_0/reset_n",
+          "axis_converter_0/i_reset"
+        ]
+      }
+    }
+  }
+}

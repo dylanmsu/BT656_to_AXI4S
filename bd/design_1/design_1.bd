@@ -1,0 +1,625 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x16FA34F7FE82EAEA",
+      "device": "xc7z020clg400-1",
+      "gen_directory": "../../../../ADV7180_Interface.gen/sources_1/bd/design_1",
+      "name": "design_1",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2021.2"
+    },
+    "design_tree": {
+      "BT656_decode": "",
+      "clk_wiz_0": "",
+      "ila_0": "",
+      "xlslice_0": "",
+      "xlslice_1": "",
+      "xlslice_2": "",
+      "pwm_0": "",
+      "pwm_1": "",
+      "pwm_2": "",
+      "v_proc_ss_0": ""
+    },
+    "ports": {
+      "CAM_LLC": {
+        "direction": "I"
+      },
+      "CAM_Y": {
+        "direction": "I",
+        "left": "7",
+        "right": "0"
+      },
+      "ledb": {
+        "direction": "O",
+        "left": "0",
+        "right": "0"
+      },
+      "ledg": {
+        "direction": "O",
+        "left": "0",
+        "right": "0"
+      },
+      "ledr": {
+        "direction": "O",
+        "left": "0",
+        "right": "0"
+      },
+      "reset": {
+        "direction": "I"
+      },
+      "sysclk": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "FREQ_HZ": {
+            "value": "100000000"
+          }
+        }
+      }
+    },
+    "components": {
+      "BT656_decode": {
+        "parameters": {
+          "ACTIVE_SIM_BD": {
+            "value": "BT656_decode.bd"
+          },
+          "ACTIVE_SYNTH_BD": {
+            "value": "BT656_decode.bd"
+          },
+          "ENABLE_DFX": {
+            "value": "0"
+          },
+          "LIST_SIM_BD": {
+            "value": "BT656_decode.bd"
+          },
+          "LIST_SYNTH_BD": {
+            "value": "BT656_decode.bd"
+          },
+          "LOCK_PROPAGATE": {
+            "value": "0"
+          }
+        },
+        "interface_ports": {
+          "M_AXIS_0": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+            "vlnv": "xilinx.com:interface:axis_rtl:1.0"
+          }
+        },
+        "ports": {
+          "CAM_LLC": {
+            "direction": "I"
+          },
+          "CAM_Y": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "m_axis_aclk_0": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "o_data_0": {
+            "direction": "O",
+            "left": "23",
+            "right": "0"
+          },
+          "o_eol_0": {
+            "direction": "O"
+          },
+          "o_sof_0": {
+            "direction": "O"
+          },
+          "o_data_active_0": {
+            "direction": "O"
+          },
+          "h_blank_0": {
+            "direction": "O"
+          },
+          "v_blank_0": {
+            "direction": "O"
+          },
+          "field_id_0": {
+            "direction": "O"
+          }
+        },
+        "post_compiled_compname": "BT656_decode_inst_0",
+        "architecture": "zynq",
+        "variant_info": {
+          "BT656_decode.bd": {
+            "scoped_diagram": "BT656_decode_inst_0.bd",
+            "design_checksum": "0x37605F66",
+            "ref_name": "BT656_decode",
+            "ref_subinst_path": "design_1_BT656_decode_0",
+            "ref_type": "Block Design",
+            "source_type": "all",
+            "active": "all"
+          }
+        }
+      },
+      "clk_wiz_0": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "xci_name": "design_1_clk_wiz_0_0",
+        "xci_path": "ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0.xci",
+        "inst_hier_path": "clk_wiz_0",
+        "parameters": {
+          "CLKIN2_JITTER_PS": {
+            "value": "134.99"
+          },
+          "CLKOUT1_JITTER": {
+            "value": "312.734"
+          },
+          "CLKOUT1_PHASE_ERROR": {
+            "value": "234.038"
+          },
+          "CLKOUT1_REQUESTED_OUT_FREQ": {
+            "value": "13.5"
+          },
+          "CLK_IN1_BOARD_INTERFACE": {
+            "value": "sys_clock"
+          },
+          "MMCM_CLKFBOUT_MULT_F": {
+            "value": "40.500"
+          },
+          "MMCM_CLKIN2_PERIOD": {
+            "value": "10.000"
+          },
+          "MMCM_CLKOUT0_DIVIDE_F": {
+            "value": "75.000"
+          },
+          "MMCM_DIVCLK_DIVIDE": {
+            "value": "5"
+          },
+          "SECONDARY_IN_FREQ": {
+            "value": "100.000"
+          },
+          "SECONDARY_SOURCE": {
+            "value": "Single_ended_clock_capable_pin"
+          },
+          "USE_BOARD_FLOW": {
+            "value": "true"
+          },
+          "USE_INCLK_SWITCHOVER": {
+            "value": "false"
+          },
+          "USE_LOCKED": {
+            "value": "false"
+          },
+          "USE_RESET": {
+            "value": "false"
+          }
+        }
+      },
+      "ila_0": {
+        "vlnv": "xilinx.com:ip:ila:6.2",
+        "xci_name": "design_1_ila_0_1",
+        "xci_path": "ip/design_1_ila_0_1/design_1_ila_0_1.xci",
+        "inst_hier_path": "ila_0",
+        "parameters": {
+          "C_DATA_DEPTH": {
+            "value": "131072"
+          },
+          "C_ENABLE_ILA_AXI_MON": {
+            "value": "false"
+          },
+          "C_MONITOR_TYPE": {
+            "value": "Native"
+          },
+          "C_NUM_OF_PROBES": {
+            "value": "4"
+          },
+          "C_PROBE0_WIDTH": {
+            "value": "24"
+          },
+          "C_PROBE4_WIDTH": {
+            "value": "1"
+          },
+          "C_PROBE7_WIDTH": {
+            "value": "1"
+          }
+        }
+      },
+      "xlslice_0": {
+        "vlnv": "xilinx.com:ip:xlslice:1.0",
+        "xci_name": "design_1_xlslice_0_0",
+        "xci_path": "ip/design_1_xlslice_0_0/design_1_xlslice_0_0.xci",
+        "inst_hier_path": "xlslice_0",
+        "parameters": {
+          "DIN_FROM": {
+            "value": "23"
+          },
+          "DIN_TO": {
+            "value": "16"
+          },
+          "DIN_WIDTH": {
+            "value": "24"
+          },
+          "DOUT_WIDTH": {
+            "value": "8"
+          }
+        }
+      },
+      "xlslice_1": {
+        "vlnv": "xilinx.com:ip:xlslice:1.0",
+        "xci_name": "design_1_xlslice_1_0",
+        "xci_path": "ip/design_1_xlslice_1_0/design_1_xlslice_1_0.xci",
+        "inst_hier_path": "xlslice_1",
+        "parameters": {
+          "DIN_FROM": {
+            "value": "15"
+          },
+          "DIN_TO": {
+            "value": "8"
+          },
+          "DIN_WIDTH": {
+            "value": "24"
+          },
+          "DOUT_WIDTH": {
+            "value": "8"
+          }
+        }
+      },
+      "xlslice_2": {
+        "vlnv": "xilinx.com:ip:xlslice:1.0",
+        "xci_name": "design_1_xlslice_2_0",
+        "xci_path": "ip/design_1_xlslice_2_0/design_1_xlslice_2_0.xci",
+        "inst_hier_path": "xlslice_2",
+        "parameters": {
+          "DIN_FROM": {
+            "value": "7"
+          },
+          "DIN_WIDTH": {
+            "value": "24"
+          },
+          "DOUT_WIDTH": {
+            "value": "8"
+          }
+        }
+      },
+      "pwm_0": {
+        "vlnv": "xilinx.com:module_ref:pwm:1.0",
+        "xci_name": "design_1_pwm_0_0",
+        "xci_path": "ip/design_1_pwm_0_0/design_1_pwm_0_0.xci",
+        "inst_hier_path": "pwm_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "pwm",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "13500000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "reset_n": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "ena": {
+            "direction": "I"
+          },
+          "duty": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "pwm_out": {
+            "direction": "O",
+            "left": "0",
+            "right": "0"
+          },
+          "pwm_n_out": {
+            "direction": "O",
+            "left": "0",
+            "right": "0"
+          }
+        }
+      },
+      "pwm_1": {
+        "vlnv": "xilinx.com:module_ref:pwm:1.0",
+        "xci_name": "design_1_pwm_1_0",
+        "xci_path": "ip/design_1_pwm_1_0/design_1_pwm_1_0.xci",
+        "inst_hier_path": "pwm_1",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "pwm",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "13500000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "reset_n": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "ena": {
+            "direction": "I"
+          },
+          "duty": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "pwm_out": {
+            "direction": "O",
+            "left": "0",
+            "right": "0"
+          },
+          "pwm_n_out": {
+            "direction": "O",
+            "left": "0",
+            "right": "0"
+          }
+        }
+      },
+      "pwm_2": {
+        "vlnv": "xilinx.com:module_ref:pwm:1.0",
+        "xci_name": "design_1_pwm_2_0",
+        "xci_path": "ip/design_1_pwm_2_0/design_1_pwm_2_0.xci",
+        "inst_hier_path": "pwm_2",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "pwm",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "13500000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "reset_n": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "ena": {
+            "direction": "I"
+          },
+          "duty": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "pwm_out": {
+            "direction": "O",
+            "left": "0",
+            "right": "0"
+          },
+          "pwm_n_out": {
+            "direction": "O",
+            "left": "0",
+            "right": "0"
+          }
+        }
+      },
+      "v_proc_ss_0": {
+        "vlnv": "xilinx.com:ip:v_proc_ss:2.3",
+        "xci_name": "design_1_v_proc_ss_0_0",
+        "xci_path": "ip/design_1_v_proc_ss_0_0/design_1_v_proc_ss_0_0.xci",
+        "inst_hier_path": "v_proc_ss_0",
+        "parameters": {
+          "C_AXIMM_DATA_WIDTH": {
+            "value": "128"
+          },
+          "C_COLORSPACE_SUPPORT": {
+            "value": "2"
+          },
+          "C_DEINT_MOTION_ADAPTIVE": {
+            "value": "false"
+          },
+          "C_TOPOLOGY": {
+            "value": "2"
+          }
+        },
+        "interface_ports": {
+          "s_axi_ctrl": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
+            "parameters": {
+              "ADDR_WIDTH": {
+                "value": "16"
+              },
+              "MAX_BURST_LENGTH": {
+                "value": "1"
+              },
+              "PROTOCOL": {
+                "value": "AXI4LITE"
+              },
+              "SUPPORTS_NARROW_BURST": {
+                "value": "0"
+              }
+            },
+            "memory_map_ref": "s_axi_ctrl"
+          },
+          "s_axis": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+            "vlnv": "xilinx.com:interface:axis_rtl:1.0"
+          },
+          "m_axis": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+            "vlnv": "xilinx.com:interface:axis_rtl:1.0"
+          }
+        },
+        "addressing": {
+          "memory_maps": {
+            "s_axi_ctrl": {
+              "address_blocks": {
+                "Reg": {
+                  "base_address": "0x0000",
+                  "range": "64K",
+                  "width": "16",
+                  "usage": "register",
+                  "bank_blocks": {
+                    "SEG_dint_Reg;/dint/s_axi_CTRL/Reg;xilinx.com:ip:v_deinterlacer:5.1;/dint;s_axi_CTRL;C_S_AXI_CTRL_BASEADDR;C_S_AXI_CTRL_HIGHADDR": {
+                      "base_address": "0x0000",
+                      "range": "64K",
+                      "width": "16",
+                      "usage": "register"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "nets": {
+      "BT656_decode_M_AXIS_0_tdata": {
+        "ports": [
+          "BT656_decode/M_AXIS_0_tdata",
+          "ila_0/probe0",
+          "xlslice_0/Din",
+          "xlslice_1/Din",
+          "xlslice_2/Din"
+        ]
+      },
+      "BT656_decode_M_AXIS_0_tlast": {
+        "ports": [
+          "BT656_decode/M_AXIS_0_tlast",
+          "ila_0/probe1"
+        ]
+      },
+      "BT656_decode_M_AXIS_0_tuser": {
+        "ports": [
+          "BT656_decode/M_AXIS_0_tuser",
+          "ila_0/probe2",
+          "pwm_0/ena",
+          "pwm_1/ena",
+          "pwm_2/ena"
+        ]
+      },
+      "BT656_decode_M_AXIS_0_tvalid": {
+        "ports": [
+          "BT656_decode/M_AXIS_0_tvalid",
+          "ila_0/probe3"
+        ]
+      },
+      "CAM_LLC_1": {
+        "ports": [
+          "CAM_LLC",
+          "BT656_decode/CAM_LLC"
+        ]
+      },
+      "clk_in1_0_1": {
+        "ports": [
+          "sysclk",
+          "clk_wiz_0/clk_in1"
+        ]
+      },
+      "clk_wiz_0_clk_out1": {
+        "ports": [
+          "clk_wiz_0/clk_out1",
+          "BT656_decode/m_axis_aclk_0",
+          "ila_0/clk",
+          "pwm_0/clk",
+          "pwm_1/clk",
+          "pwm_2/clk"
+        ]
+      },
+      "i_data_0_1": {
+        "ports": [
+          "CAM_Y",
+          "BT656_decode/CAM_Y"
+        ]
+      },
+      "pwm_0_pwm_out": {
+        "ports": [
+          "pwm_0/pwm_out",
+          "ledr"
+        ]
+      },
+      "pwm_1_pwm_out": {
+        "ports": [
+          "pwm_1/pwm_out",
+          "ledg"
+        ]
+      },
+      "pwm_2_pwm_out": {
+        "ports": [
+          "pwm_2/pwm_out",
+          "ledb"
+        ]
+      },
+      "rst_ps7_0_50M_peripheral_aresetn": {
+        "ports": [
+          "reset",
+          "BT656_decode/reset",
+          "pwm_0/reset_n",
+          "pwm_1/reset_n",
+          "pwm_2/reset_n",
+          "BT656_decode/M_AXIS_0_tready"
+        ]
+      },
+      "xlslice_0_Dout": {
+        "ports": [
+          "xlslice_0/Dout",
+          "pwm_0/duty"
+        ]
+      },
+      "xlslice_1_Dout": {
+        "ports": [
+          "xlslice_1/Dout",
+          "pwm_1/duty"
+        ]
+      },
+      "xlslice_2_Dout": {
+        "ports": [
+          "xlslice_2/Dout",
+          "pwm_2/duty"
+        ]
+      }
+    }
+  }
+}

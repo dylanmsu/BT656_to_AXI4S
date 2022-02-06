@@ -1,0 +1,38 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-244,-97",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace port port-id_CAM_LLC -pg 1 -lvl 0 -x 0 -y 210 -defaultsOSRD
+preplace port port-id_reset -pg 1 -lvl 0 -x 0 -y 230 -defaultsOSRD
+preplace port port-id_o_active_video -pg 1 -lvl 3 -x 600 -y 190 -defaultsOSRD
+preplace port port-id_Valid_YCbCr -pg 1 -lvl 3 -x 600 -y 50 -defaultsOSRD
+preplace port port-id_o_h_blank -pg 1 -lvl 3 -x 600 -y 210 -defaultsOSRD
+preplace port port-id_o_v_blank -pg 1 -lvl 3 -x 600 -y 230 -defaultsOSRD
+preplace port port-id_o_field_id -pg 1 -lvl 3 -x 600 -y 250 -defaultsOSRD
+preplace portBus Y_out -pg 1 -lvl 3 -x 600 -y 70 -defaultsOSRD
+preplace portBus Cb_out -pg 1 -lvl 3 -x 600 -y 90 -defaultsOSRD
+preplace portBus Cr_out -pg 1 -lvl 3 -x 600 -y 110 -defaultsOSRD
+preplace portBus CAM_Y -pg 1 -lvl 0 -x 0 -y 190 -defaultsOSRD
+preplace portBus o_data -pg 1 -lvl 3 -x 600 -y 170 -defaultsOSRD
+preplace inst CbYCrY_UpSampler_0 -pg 1 -lvl 2 -x 450 -y 80 -defaultsOSRD
+preplace inst BT656_0 -pg 1 -lvl 1 -x 170 -y 210 -defaultsOSRD
+preplace netloc BT656_0_o_data 1 1 2 320 170 NJ
+preplace netloc CAM_LLC_1 1 0 2 20 50 NJ
+preplace netloc proc_sys_reset_0_peripheral_aresetn 1 0 2 30 70 NJ
+preplace netloc BT656_0_o_active_video 1 1 2 310 190 NJ
+preplace netloc BT656_0_o_ycbcr_valid 1 2 1 NJ 50
+preplace netloc BT656_0_o_data_y 1 2 1 NJ 70
+preplace netloc BT656_0_o_data_cb 1 2 1 NJ 90
+preplace netloc BT656_0_o_data_cr 1 2 1 NJ 110
+preplace netloc i_data_0_1 1 0 1 NJ 190
+preplace netloc BT656_0_o_h_blank 1 1 2 NJ 210 NJ
+preplace netloc BT656_0_o_v_blank 1 1 2 NJ 230 NJ
+preplace netloc BT656_0_o_field_id 1 1 2 NJ 250 NJ
+levelinfo -pg 1 0 170 450 600
+pagesize -pg 1 -db -bbox -sgen -140 -10 760 310
+"
+}
+
