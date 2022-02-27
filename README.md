@@ -23,3 +23,6 @@ active pixels/line = 720Y + 720C = 1440 clks <br>
 
 ### BT656 decoder
 ![block-diagram](./img/Block-Diagram-BT656-V1.1.png)
+
+## Disclaimer
+This is in no way a rigorously tested design and sould NOT be used in an actual implementation. This is a personal project to learn more about VHDL and video processing. I got it to work on my specific setup and i cannot guarantee that it will work on other hardware.
