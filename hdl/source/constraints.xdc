@@ -31,14 +31,14 @@ set_property -dict {PACKAGE_PIN G15 IOSTANDARD LVCMOS33} [get_ports reset]
 
 
 ##RGB LED 5 (Zybo Z7-20 only)
-set_property -dict {PACKAGE_PIN Y11 IOSTANDARD LVCMOS33} [get_ports ledr]
-set_property -dict {PACKAGE_PIN T5 IOSTANDARD LVCMOS33} [get_ports ledg]
-set_property -dict {PACKAGE_PIN Y12 IOSTANDARD LVCMOS33} [get_ports ledb]
+#set_property -dict {PACKAGE_PIN Y11 IOSTANDARD LVCMOS33} [get_ports ledr2]
+#set_property -dict {PACKAGE_PIN T5 IOSTANDARD LVCMOS33} [get_ports ledg2]
+#set_property -dict {PACKAGE_PIN Y12 IOSTANDARD LVCMOS33} [get_ports ledb2]
 
 ##RGB LED 6
-#set_property -dict { PACKAGE_PIN V16   IOSTANDARD LVCMOS33 } [get_ports { ledrgb[0] }]; #IO_L18P_T2_34 Sch=led6_r
-#set_property -dict { PACKAGE_PIN F17   IOSTANDARD LVCMOS33 } [get_ports { ledrgb[1] }]; #IO_L6N_T0_VREF_35 Sch=led6_g
-#set_property -dict { PACKAGE_PIN M17   IOSTANDARD LVCMOS33 } [get_ports { ledrgb[2] }]; #IO_L8P_T1_AD10P_35 Sch=led6_b
+#set_property -dict { PACKAGE_PIN V16   IOSTANDARD LVCMOS33 } [get_ports { ledr }]; #IO_L18P_T2_34 Sch=led6_r
+#set_property -dict { PACKAGE_PIN F17   IOSTANDARD LVCMOS33 } [get_ports { ledg }]; #IO_L6N_T0_VREF_35 Sch=led6_g
+set_property -dict { PACKAGE_PIN M17   IOSTANDARD LVCMOS33 } [get_ports { ledb }]; #IO_L8P_T1_AD10P_35 Sch=led6_b
 
 
 ##Audio Codec
@@ -130,15 +130,15 @@ set_property -dict {PACKAGE_PIN T11 IOSTANDARD LVCMOS33} [get_ports CAM_LLC]
 #set_property -dict { PACKAGE_PIN U12   IOSTANDARD LVCMOS33     } [get_ports { iic_rtl_sda_io }]; #IO_L2N_T0_34 Sch=jc_n[4]
 set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets CAM_LLC]
 
-##Pmod Header JD
-set_property -dict {PACKAGE_PIN T14 IOSTANDARD LVCMOS33} [get_ports {CAM_Y[6]}]
-set_property -dict {PACKAGE_PIN T15 IOSTANDARD LVCMOS33} [get_ports {CAM_Y[4]}]
-set_property -dict {PACKAGE_PIN P14 IOSTANDARD LVCMOS33} [get_ports {CAM_Y[2]}]
-set_property -dict {PACKAGE_PIN R14 IOSTANDARD LVCMOS33} [get_ports {CAM_Y[0]}]
-set_property -dict {PACKAGE_PIN U14 IOSTANDARD LVCMOS33} [get_ports {CAM_Y[7]}]
-set_property -dict {PACKAGE_PIN U15 IOSTANDARD LVCMOS33} [get_ports {CAM_Y[5]}]
-set_property -dict {PACKAGE_PIN V17 IOSTANDARD LVCMOS33} [get_ports {CAM_Y[3]}]
-set_property -dict {PACKAGE_PIN V18 IOSTANDARD LVCMOS33} [get_ports {CAM_Y[1]}]
+##Pmod Header JD 
+set_property -dict {PACKAGE_PIN T14 IOSTANDARD LVCMOS33} [get_ports {CAM_BT656[6]}]
+set_property -dict {PACKAGE_PIN T15 IOSTANDARD LVCMOS33} [get_ports {CAM_BT656[4]}]
+set_property -dict {PACKAGE_PIN P14 IOSTANDARD LVCMOS33} [get_ports {CAM_BT656[2]}]
+set_property -dict {PACKAGE_PIN R14 IOSTANDARD LVCMOS33} [get_ports {CAM_BT656[0]}]
+set_property -dict {PACKAGE_PIN U14 IOSTANDARD LVCMOS33} [get_ports {CAM_BT656[7]}]
+set_property -dict {PACKAGE_PIN U15 IOSTANDARD LVCMOS33} [get_ports {CAM_BT656[5]}]
+set_property -dict {PACKAGE_PIN V17 IOSTANDARD LVCMOS33} [get_ports {CAM_BT656[3]}]
+set_property -dict {PACKAGE_PIN V18 IOSTANDARD LVCMOS33} [get_ports {CAM_BT656[1]}]
 
 
 ##Pmod Header JE

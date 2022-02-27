@@ -169,38 +169,21 @@ architecture Model of BT656_camera_model is
     signal M_AXIS_0_tlast : std_logic;
     signal M_AXIS_0_tvalid : std_logic;
     signal M_AXIS_0_tuser : std_logic;
-    signal M_AXIS_0_tdata : std_logic_vector(23 downto 0);
-        
-    signal o_data_0 : std_logic_vector ( 23 downto 0 );
-    signal o_eol_0 : std_logic;
-    signal o_sof_0 : std_logic;
-    signal o_data_active_0 : std_logic;
-	
-    signal h_blank_0 : std_logic;
-    signal v_blank_0 : std_logic;
-    signal field_id_0: std_logic;
-    
+    signal M_AXIS_0_tdata : std_logic_vector(23 downto 0);    
 
 begin
 
     dut : entity work.BT656_decode_wrapper
     port map (
-        m_axis_aclk_0   => clk,
-        CAM_LLC         => CAM_LLC,
-        CAM_Y           => CAM_Y,
-        o_data_0 => o_data_0,
-        o_eol_0 => o_eol_0,
-        o_sof_0 => o_sof_0,
-        o_data_active_0 => o_data_active_0,
+        m_clk           => clk,
+        BT656_clk       => CAM_LLC,
+        BT656           => CAM_Y,
         reset           => reset,
         M_AXIS_0_tdata  => M_AXIS_0_tdata,
         M_AXIS_0_tlast  => M_AXIS_0_tlast,
         M_AXIS_0_tready => reset,
         M_AXIS_0_tuser(0)  => M_AXIS_0_tuser,
-        M_AXIS_0_tvalid => M_AXIS_0_tvalid,
-        h_blank_0 => h_blank_0,
-        v_blank_0 => v_blank_0,
-        field_id_0 => field_id_0
+        M_AXIS_0_tvalid => M_AXIS_0_tvalid
     );
 
     CAM_LLC <= not CAM_LLC after period;

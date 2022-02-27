@@ -33,9 +33,9 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity axis_converter is
     Port (
-        i_data_y        : in std_logic_vector(7 downto 0) := (others => '0');
-        i_data_cb       : in std_logic_vector(7 downto 0) := (others => '0');
-        i_data_cr       : in std_logic_vector(7 downto 0) := (others => '0');
+        i_data_r        : in std_logic_vector(7 downto 0) := (others => '0');
+        i_data_g       : in std_logic_vector(7 downto 0) := (others => '0');
+        i_data_b       : in std_logic_vector(7 downto 0) := (others => '0');
         i_data_active   : in std_logic;
         i_clk           : in std_logic;
         i_reset         : in std_logic;
@@ -43,6 +43,7 @@ entity axis_converter is
         i_v_blank       : in std_logic;
         i_field_id      : in std_logic;
         
+        i_data_ready    : in  std_logic;
         o_data          : out std_logic_vector(23 downto 0);
         o_eol           : out std_logic;
         o_sof           : out std_logic;
@@ -61,6 +62,15 @@ architecture Behavioral of axis_converter is
     signal state : state_type := idle;
     
     signal eol, sof : std_logic;
+    
+      attribute X_INTERFACE_INFO : string;
+      attribute X_INTERFACE_PARAMETER : string;
+      attribute X_INTERFACE_INFO of o_eol : signal is "xilinx.com:interface:axis:1.0 M_AXIS_0 TLAST";
+      attribute X_INTERFACE_INFO of i_data_ready : signal is "xilinx.com:interface:axis:1.0 M_AXIS_0 TREADY";
+      attribute X_INTERFACE_INFO of o_data_active : signal is "xilinx.com:interface:axis:1.0 M_AXIS_0 TVALID";
+      attribute X_INTERFACE_INFO of o_data : signal is "xilinx.com:interface:axis:1.0 M_AXIS_0 TDATA";
+      attribute X_INTERFACE_PARAMETER of o_data : signal is "XIL_INTERFACENAME M_AXIS_0, CLK_DOMAIN BT656_decode_m_clk, FREQ_HZ 100000000, HAS_TKEEP 0, HAS_TLAST 1, HAS_TREADY 1, HAS_TSTRB 0, INSERT_VIP 0, LAYERED_METADATA undef, PHASE 0.0, TDATA_NUM_BYTES 3, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 1";
+      attribute X_INTERFACE_INFO of o_sof : signal is "xilinx.com:interface:axis:1.0 M_AXIS_0 TUSER";
 
 begin    
     decode: process(i_clk)
@@ -122,9 +132,9 @@ begin
                 o_field_id      <= data_fifo(fifo_length - 7)(27);
                 
                 --give data to the input of the fifo
-                data_fifo(0)(7 downto 0)    <= i_data_cr;
-                data_fifo(0)(15 downto 8)   <= i_data_cb;
-                data_fifo(0)(23 downto 16)  <= i_data_y;
+                data_fifo(0)(7 downto 0)    <= i_data_b;
+                data_fifo(0)(15 downto 8)   <= i_data_g;
+                data_fifo(0)(23 downto 16)  <= i_data_r;
                 data_fifo(0)(24)            <= eol;
                 data_fifo(0)(25)            <= sof;
                 data_fifo(0)(26)            <= i_data_active;
