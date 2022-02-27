@@ -130,6 +130,7 @@ set_property -dict {PACKAGE_PIN T11 IOSTANDARD LVCMOS33} [get_ports CAM_LLC]
 #set_property -dict { PACKAGE_PIN U12   IOSTANDARD LVCMOS33     } [get_ports { iic_rtl_sda_io }]; #IO_L2N_T0_34 Sch=jc_n[4]
 set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets CAM_LLC]
 
+<<<<<<< HEAD
 ##Pmod Header JD 
 set_property -dict {PACKAGE_PIN T14 IOSTANDARD LVCMOS33} [get_ports {CAM_BT656[6]}]
 set_property -dict {PACKAGE_PIN T15 IOSTANDARD LVCMOS33} [get_ports {CAM_BT656[4]}]
@@ -139,17 +140,28 @@ set_property -dict {PACKAGE_PIN U14 IOSTANDARD LVCMOS33} [get_ports {CAM_BT656[7
 set_property -dict {PACKAGE_PIN U15 IOSTANDARD LVCMOS33} [get_ports {CAM_BT656[5]}]
 set_property -dict {PACKAGE_PIN V17 IOSTANDARD LVCMOS33} [get_ports {CAM_BT656[3]}]
 set_property -dict {PACKAGE_PIN V18 IOSTANDARD LVCMOS33} [get_ports {CAM_BT656[1]}]
+=======
+##Pmod Header JD (luminance y input in 16bit mode or BT.656 in 8bit mode)
+set_property -dict {PACKAGE_PIN T14 IOSTANDARD LVCMOS33} [get_ports {CAM_Y[6]}]
+set_property -dict {PACKAGE_PIN T15 IOSTANDARD LVCMOS33} [get_ports {CAM_Y[4]}]
+set_property -dict {PACKAGE_PIN P14 IOSTANDARD LVCMOS33} [get_ports {CAM_Y[2]}]
+set_property -dict {PACKAGE_PIN R14 IOSTANDARD LVCMOS33} [get_ports {CAM_Y[0]}]
+set_property -dict {PACKAGE_PIN U14 IOSTANDARD LVCMOS33} [get_ports {CAM_Y[7]}]
+set_property -dict {PACKAGE_PIN U15 IOSTANDARD LVCMOS33} [get_ports {CAM_Y[5]}]
+set_property -dict {PACKAGE_PIN V17 IOSTANDARD LVCMOS33} [get_ports {CAM_Y[3]}]
+set_property -dict {PACKAGE_PIN V18 IOSTANDARD LVCMOS33} [get_ports {CAM_Y[1]}]
+>>>>>>> e50bdb4e1ffe7ba9ac6e0b83fab5a171ad3c41be
 
 
-##Pmod Header JE
-#set_property -dict { PACKAGE_PIN V12   IOSTANDARD LVCMOS33 } [get_ports { CAM_Cr[2] }]; #IO_L4P_T0_34 Sch=je[1]
-#set_property -dict { PACKAGE_PIN W16   IOSTANDARD LVCMOS33 } [get_ports { CAM_Cr[0] }]; #IO_L18N_T2_34 Sch=je[2]
-#set_property -dict { PACKAGE_PIN J15   IOSTANDARD LVCMOS33 } [get_ports { CAM_Cb[2] }]; #IO_25_35 Sch=je[3]
-#set_property -dict { PACKAGE_PIN H15   IOSTANDARD LVCMOS33 } [get_ports { CAM_Cb[0] }]; #IO_L19P_T3_35 Sch=je[4]
-#set_property -dict { PACKAGE_PIN V13   IOSTANDARD LVCMOS33 } [get_ports { CAM_Cr[3] }]; #IO_L3N_T0_DQS_34 Sch=je[7]
-#set_property -dict { PACKAGE_PIN U17   IOSTANDARD LVCMOS33 } [get_ports { CAM_Cr[1] }]; #IO_L9N_T1_DQS_34 Sch=je[8]
-#set_property -dict { PACKAGE_PIN T17   IOSTANDARD LVCMOS33 } [get_ports { CAM_Cb[3] }]; #IO_L20P_T3_34 Sch=je[9]
-#set_property -dict { PACKAGE_PIN Y17   IOSTANDARD LVCMOS33 } [get_ports { CAM_Cb[1] }]; #IO_L7N_T1_34 Sch=je[10]
+##Pmod Header JE (chroma cb/cr input in 16bit mode)
+#set_property -dict {PACKAGE_PIN V12 IOSTANDARD LVCMOS33} [get_ports {CAM_C[6]}]
+#set_property -dict {PACKAGE_PIN W16 IOSTANDARD LVCMOS33} [get_ports {CAM_C[4]}]
+#set_property -dict {PACKAGE_PIN J15 IOSTANDARD LVCMOS33} [get_ports {CAM_C[2]}]
+#set_property -dict {PACKAGE_PIN H15 IOSTANDARD LVCMOS33} [get_ports {CAM_C[0]}]
+#set_property -dict {PACKAGE_PIN V13 IOSTANDARD LVCMOS33} [get_ports {CAM_C[7]}]
+#set_property -dict {PACKAGE_PIN U17 IOSTANDARD LVCMOS33} [get_ports {CAM_C[5]}]
+#set_property -dict {PACKAGE_PIN T17 IOSTANDARD LVCMOS33} [get_ports {CAM_C[3]}]
+#set_property -dict {PACKAGE_PIN Y17 IOSTANDARD LVCMOS33} [get_ports {CAM_C[1]}]
 
 
 ##Pcam MIPI CSI-2 Connector
