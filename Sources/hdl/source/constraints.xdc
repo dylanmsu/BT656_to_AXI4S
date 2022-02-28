@@ -38,7 +38,7 @@ set_property -dict {PACKAGE_PIN G15 IOSTANDARD LVCMOS33} [get_ports reset]
 ##RGB LED 6
 #set_property -dict { PACKAGE_PIN V16   IOSTANDARD LVCMOS33 } [get_ports { ledr }]; #IO_L18P_T2_34 Sch=led6_r
 #set_property -dict { PACKAGE_PIN F17   IOSTANDARD LVCMOS33 } [get_ports { ledg }]; #IO_L6N_T0_VREF_35 Sch=led6_g
-set_property -dict { PACKAGE_PIN M17   IOSTANDARD LVCMOS33 } [get_ports { ledb }]; #IO_L8P_T1_AD10P_35 Sch=led6_b
+#set_property -dict { PACKAGE_PIN M17   IOSTANDARD LVCMOS33 } [get_ports { ledb }]; #IO_L8P_T1_AD10P_35 Sch=led6_b
 
 
 ##Audio Codec
@@ -129,9 +129,10 @@ set_property -dict {PACKAGE_PIN T11 IOSTANDARD LVCMOS33} [get_ports CAM_LLC]
 #set_property -dict { PACKAGE_PIN T12   IOSTANDARD LVCMOS33     } [get_ports { iic_rtl_scl_io }]; #IO_L2P_T0_34 Sch=jc_p[4]
 #set_property -dict { PACKAGE_PIN U12   IOSTANDARD LVCMOS33     } [get_ports { iic_rtl_sda_io }]; #IO_L2N_T0_34 Sch=jc_n[4]
 set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets CAM_LLC]
+create_clock -period 37.037 -name CAM_LLC [get_ports CAM_LLC]
 
-<<<<<<< HEAD
-##Pmod Header JD 
+
+##Pmod Header JD
 set_property -dict {PACKAGE_PIN T14 IOSTANDARD LVCMOS33} [get_ports {CAM_BT656[6]}]
 set_property -dict {PACKAGE_PIN T15 IOSTANDARD LVCMOS33} [get_ports {CAM_BT656[4]}]
 set_property -dict {PACKAGE_PIN P14 IOSTANDARD LVCMOS33} [get_ports {CAM_BT656[2]}]
@@ -140,17 +141,6 @@ set_property -dict {PACKAGE_PIN U14 IOSTANDARD LVCMOS33} [get_ports {CAM_BT656[7
 set_property -dict {PACKAGE_PIN U15 IOSTANDARD LVCMOS33} [get_ports {CAM_BT656[5]}]
 set_property -dict {PACKAGE_PIN V17 IOSTANDARD LVCMOS33} [get_ports {CAM_BT656[3]}]
 set_property -dict {PACKAGE_PIN V18 IOSTANDARD LVCMOS33} [get_ports {CAM_BT656[1]}]
-=======
-##Pmod Header JD (luminance y input in 16bit mode or BT.656 in 8bit mode)
-set_property -dict {PACKAGE_PIN T14 IOSTANDARD LVCMOS33} [get_ports {CAM_Y[6]}]
-set_property -dict {PACKAGE_PIN T15 IOSTANDARD LVCMOS33} [get_ports {CAM_Y[4]}]
-set_property -dict {PACKAGE_PIN P14 IOSTANDARD LVCMOS33} [get_ports {CAM_Y[2]}]
-set_property -dict {PACKAGE_PIN R14 IOSTANDARD LVCMOS33} [get_ports {CAM_Y[0]}]
-set_property -dict {PACKAGE_PIN U14 IOSTANDARD LVCMOS33} [get_ports {CAM_Y[7]}]
-set_property -dict {PACKAGE_PIN U15 IOSTANDARD LVCMOS33} [get_ports {CAM_Y[5]}]
-set_property -dict {PACKAGE_PIN V17 IOSTANDARD LVCMOS33} [get_ports {CAM_Y[3]}]
-set_property -dict {PACKAGE_PIN V18 IOSTANDARD LVCMOS33} [get_ports {CAM_Y[1]}]
->>>>>>> e50bdb4e1ffe7ba9ac6e0b83fab5a171ad3c41be
 
 
 ##Pmod Header JE (chroma cb/cr input in 16bit mode)
@@ -203,3 +193,15 @@ set_property -dict {PACKAGE_PIN V18 IOSTANDARD LVCMOS33} [get_ports {CAM_Y[1]}]
 #set_property PACKAGE_PIN W11 [get_ports {netic19_w11}]; #IO_L18P_T2_13
 #set_property PACKAGE_PIN W9 [get_ports {netic19_w9}]; #IO_L16N_T2_13
 #set_property PACKAGE_PIN Y9 [get_ports {netic19_y9}]; #IO_L14P_T2_SRCC_13
+
+#set_input_delay -clock [get_clocks CAM_LLC] -min -add_delay 3.000 [get_ports {CAM_BT656[*]}]
+#set_input_delay -clock [get_clocks CAM_LLC] -max -add_delay 15.000 [get_ports {CAM_BT656[*]}]
+#set_input_delay -clock [get_clocks CAM_LLC] -min -add_delay 3.000 [get_ports reset]
+#set_input_delay -clock [get_clocks CAM_LLC] -max -add_delay 15.000 [get_ports reset]
+set_clock_groups -physically_exclusive -group [get_clocks -include_generated_clocks sys_clk_pin] -group [get_clocks -include_generated_clocks sysclk]
+set_clock_groups -physically_exclusive -group [get_clocks -include_generated_clocks clkfbout_design_1_clk_wiz_0_0] -group [get_clocks -include_generated_clocks clkfbout_design_1_clk_wiz_0_0_1]
+set_clock_groups -physically_exclusive -group [get_clocks -include_generated_clocks clk_out1_design_1_clk_wiz_0_0] -group [get_clocks -include_generated_clocks clk_out1_design_1_clk_wiz_0_0_1]
+set_property C_CLK_INPUT_FREQ_HZ 300000000 [get_debug_cores dbg_hub]
+set_property C_ENABLE_CLK_DIVIDER false [get_debug_cores dbg_hub]
+set_property C_USER_SCAN_CHAIN 1 [get_debug_cores dbg_hub]
+connect_debug_port dbg_hub/clk [get_nets clk]

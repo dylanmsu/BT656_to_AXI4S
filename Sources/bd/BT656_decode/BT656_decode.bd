@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xAEFD0377591DD3CC",
+      "boundary_crc": "0xAEFD037724647B42",
       "device": "xc7z020clg400-1",
       "gen_directory": "../../../../ADV7180_Interface.gen/sources_1/bd/BT656_decode",
       "name": "BT656_decode",
@@ -12,10 +12,10 @@
     },
     "design_tree": {
       "axis_data_fifo_0": "",
-      "CbYCrY_UpSampler_0": "",
       "BT656_0": "",
+      "CbYCrY_UpSampler_0": "",
       "YCbCr_2_RGB_0": "",
-      "axis_converter_0": ""
+      "axis_encoder_0": ""
     },
     "interface_ports": {
       "M_AXIS_0": {
@@ -28,8 +28,7 @@
             "value_src": "default"
           },
           "FREQ_HZ": {
-            "value": "100000000",
-            "value_src": "default"
+            "value": "11330000"
           },
           "HAS_TKEEP": {
             "value": "0",
@@ -79,9 +78,6 @@
       }
     },
     "ports": {
-      "BT656_clk": {
-        "direction": "I"
-      },
       "BT656": {
         "direction": "I",
         "left": "7",
@@ -114,8 +110,35 @@
             "value_src": "default"
           },
           "FREQ_HZ": {
-            "value": "100000000",
+            "value": "11330000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
             "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "BT656_clk": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "ASSOCIATED_RESET": {
+            "value": "reset"
+          },
+          "CLK_DOMAIN": {
+            "value": "BT656_decode_BT656_clk",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "27000000"
           },
           "FREQ_TOLERANCE_HZ": {
             "value": "0",
@@ -156,6 +179,62 @@
           }
         }
       },
+      "BT656_0": {
+        "vlnv": "xilinx.com:module_ref:BT656:1.0",
+        "xci_name": "BT656_decode_BT656_0_0",
+        "xci_path": "ip/BT656_decode_BT656_0_0/BT656_decode_BT656_0_0.xci",
+        "inst_hier_path": "BT656_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "BT656",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "bt656_data": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "llc": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "27000000",
+                "value_src": "user_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "BT656_decode_BT656_clk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "reset_n": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "data": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "active_video": {
+            "direction": "O"
+          },
+          "h_blank": {
+            "direction": "O"
+          },
+          "v_blank": {
+            "direction": "O"
+          },
+          "field_id": {
+            "direction": "O"
+          }
+        }
+      },
       "CbYCrY_UpSampler_0": {
         "vlnv": "xilinx.com:module_ref:CbYCrY_UpSampler:1.0",
         "xci_name": "BT656_decode_CbYCrY_UpSampler_0_0",
@@ -169,7 +248,17 @@
         "ports": {
           "pix_clk": {
             "type": "clk",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "27000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "BT656_decode_BT656_clk",
+                "value_src": "default_prop"
+              }
+            }
           },
           "reset_n": {
             "type": "rst",
@@ -203,48 +292,6 @@
           }
         }
       },
-      "BT656_0": {
-        "vlnv": "xilinx.com:module_ref:BT656:1.0",
-        "xci_name": "BT656_decode_BT656_0_0",
-        "xci_path": "ip/BT656_decode_BT656_0_0/BT656_decode_BT656_0_0.xci",
-        "inst_hier_path": "BT656_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "BT656",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "bt656_data": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "llc": {
-            "direction": "I"
-          },
-          "reset_n": {
-            "type": "rst",
-            "direction": "I"
-          },
-          "data": {
-            "direction": "O",
-            "left": "7",
-            "right": "0"
-          },
-          "active_video": {
-            "direction": "O"
-          },
-          "h_blank": {
-            "direction": "O"
-          },
-          "v_blank": {
-            "direction": "O"
-          },
-          "field_id": {
-            "direction": "O"
-          }
-        }
-      },
       "YCbCr_2_RGB_0": {
         "vlnv": "xilinx.com:module_ref:YCbCr_2_RGB:1.0",
         "xci_name": "BT656_decode_YCbCr_2_RGB_0_0",
@@ -258,7 +305,17 @@
         "ports": {
           "clk": {
             "type": "clk",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "27000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "BT656_decode_BT656_clk",
+                "value_src": "default_prop"
+              }
+            }
           },
           "y": {
             "direction": "I",
@@ -292,54 +349,22 @@
           }
         }
       },
-      "axis_converter_0": {
-        "vlnv": "xilinx.com:module_ref:axis_converter:1.0",
-        "xci_name": "BT656_decode_axis_converter_0_0",
-        "xci_path": "ip/BT656_decode_axis_converter_0_0/BT656_decode_axis_converter_0_0.xci",
-        "inst_hier_path": "axis_converter_0",
+      "axis_encoder_0": {
+        "vlnv": "xilinx.com:module_ref:axis_encoder:1.0",
+        "xci_name": "BT656_decode_axis_encoder_0_0",
+        "xci_path": "ip/BT656_decode_axis_encoder_0_0/BT656_decode_axis_encoder_0_0.xci",
+        "inst_hier_path": "axis_encoder_0",
         "reference_info": {
           "ref_type": "hdl",
-          "ref_name": "axis_converter",
+          "ref_name": "axis_encoder",
           "boundary_crc": "0x0"
         },
         "interface_ports": {
-          "M_AXIS_0": {
+          "BT656": {
             "mode": "Master",
             "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
             "vlnv": "xilinx.com:interface:axis_rtl:1.0",
             "parameters": {
-              "FREQ_HZ": {
-                "value": "100000000",
-                "value_src": "constant"
-              },
-              "HAS_TKEEP": {
-                "value": "0",
-                "value_src": "constant"
-              },
-              "HAS_TLAST": {
-                "value": "1",
-                "value_src": "constant"
-              },
-              "HAS_TREADY": {
-                "value": "1",
-                "value_src": "constant"
-              },
-              "HAS_TSTRB": {
-                "value": "0",
-                "value_src": "constant"
-              },
-              "INSERT_VIP": {
-                "value": "0",
-                "value_src": "constant"
-              },
-              "LAYERED_METADATA": {
-                "value": "undef",
-                "value_src": "constant"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "constant"
-              },
               "TDATA_NUM_BYTES": {
                 "value": "3",
                 "value_src": "constant"
@@ -355,29 +380,51 @@
               "TUSER_WIDTH": {
                 "value": "1",
                 "value_src": "constant"
+              },
+              "HAS_TREADY": {
+                "value": "1",
+                "value_src": "constant"
+              },
+              "HAS_TSTRB": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "HAS_TKEEP": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "HAS_TLAST": {
+                "value": "1",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "27000000"
+              },
+              "CLK_DOMAIN": {
+                "value": "BT656_decode_BT656_clk"
               }
             },
             "port_maps": {
               "TDATA": {
-                "physical_name": "o_data",
+                "physical_name": "BT656_tdata",
                 "direction": "O",
                 "left": "23",
                 "right": "0"
               },
               "TLAST": {
-                "physical_name": "o_eol",
+                "physical_name": "BT656_tlast",
                 "direction": "O"
               },
               "TUSER": {
-                "physical_name": "o_sof",
+                "physical_name": "BT656_tuser",
                 "direction": "O"
               },
               "TVALID": {
-                "physical_name": "o_data_active",
+                "physical_name": "BT656_tvalid",
                 "direction": "O"
               },
               "TREADY": {
-                "physical_name": "i_data_ready",
+                "physical_name": "BT656_tready",
                 "direction": "I"
               }
             }
@@ -409,6 +456,14 @@
               "ASSOCIATED_RESET": {
                 "value": "i_reset",
                 "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "27000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "BT656_decode_BT656_clk",
+                "value_src": "default_prop"
               }
             }
           },
@@ -432,16 +487,16 @@
       }
     },
     "interface_nets": {
-      "axis_converter_0_M_AXIS_0": {
-        "interface_ports": [
-          "axis_converter_0/M_AXIS_0",
-          "axis_data_fifo_0/S_AXIS"
-        ]
-      },
       "axis_data_fifo_0_M_AXIS": {
         "interface_ports": [
           "M_AXIS_0",
           "axis_data_fifo_0/M_AXIS"
+        ]
+      },
+      "axis_encoder_0_BT656": {
+        "interface_ports": [
+          "axis_encoder_0/BT656",
+          "axis_data_fifo_0/S_AXIS"
         ]
       }
     },
@@ -449,13 +504,13 @@
       "BT656_0_field_id": {
         "ports": [
           "BT656_0/field_id",
-          "axis_converter_0/i_field_id"
+          "axis_encoder_0/i_field_id"
         ]
       },
       "BT656_0_h_blank": {
         "ports": [
           "BT656_0/h_blank",
-          "axis_converter_0/i_h_blank"
+          "axis_encoder_0/i_h_blank"
         ]
       },
       "BT656_0_o_active_video": {
@@ -491,41 +546,41 @@
       "BT656_0_o_ycbcr_valid": {
         "ports": [
           "CbYCrY_UpSampler_0/ycbcr_valid",
-          "axis_converter_0/i_data_active"
+          "axis_encoder_0/i_data_active"
         ]
       },
       "BT656_0_v_blank": {
         "ports": [
           "BT656_0/v_blank",
-          "axis_converter_0/i_v_blank"
+          "axis_encoder_0/i_v_blank"
         ]
       },
       "CAM_LLC_1": {
         "ports": [
           "BT656_clk",
           "axis_data_fifo_0/s_axis_aclk",
-          "CbYCrY_UpSampler_0/pix_clk",
           "BT656_0/llc",
+          "CbYCrY_UpSampler_0/pix_clk",
           "YCbCr_2_RGB_0/clk",
-          "axis_converter_0/i_clk"
+          "axis_encoder_0/i_clk"
         ]
       },
       "YCbCr_2_RGB_0_b": {
         "ports": [
           "YCbCr_2_RGB_0/b",
-          "axis_converter_0/i_data_b"
+          "axis_encoder_0/i_data_b"
         ]
       },
       "YCbCr_2_RGB_0_g": {
         "ports": [
           "YCbCr_2_RGB_0/g",
-          "axis_converter_0/i_data_g"
+          "axis_encoder_0/i_data_g"
         ]
       },
       "YCbCr_2_RGB_0_r": {
         "ports": [
           "YCbCr_2_RGB_0/r",
-          "axis_converter_0/i_data_r"
+          "axis_encoder_0/i_data_r"
         ]
       },
       "i_data_0_1": {
@@ -544,9 +599,9 @@
         "ports": [
           "reset",
           "axis_data_fifo_0/s_axis_aresetn",
-          "CbYCrY_UpSampler_0/reset_n",
           "BT656_0/reset_n",
-          "axis_converter_0/i_reset"
+          "CbYCrY_UpSampler_0/reset_n",
+          "axis_encoder_0/i_reset"
         ]
       }
     }

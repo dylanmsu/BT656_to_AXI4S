@@ -41,22 +41,21 @@ architecture Behavioral of YCbCr_2_RGB is
     
     signal iy, icr, icb : integer := 0;
     signal ir, ig,  ib  : integer := 0;
-begin
-    
+begin    
+
     -- convert the vectors to integers
-    iy  <= to_integer(unsigned(y));
-    icb <= to_integer(unsigned(cb));
-    icr <= to_integer(unsigned(cr));
+            iy  <= to_integer(unsigned(y));
+            icb <= to_integer(unsigned(cb));
+            icr <= to_integer(unsigned(cr));
+            
+            -- calculate r, g, b from y, cb, cr
+            ir <= iy +  45 * (icr - 128) / 32;
+            ig <= iy - (11 * (icb - 128) + 23 * (icr - 128)) / 32;
+            ib <= iy + 113 * (icb - 128) / 64;
     
-    -- calculate r, g, b from y, cb, cr
-    ir <= iy +  45 * (icr - 128) / 32;
-    ig <= iy - (11 * (icb - 128) + 23 * (icr - 128)) / 32;
-    ib <= iy + 113 * (icb - 128) / 64;
-    
-    -- clamp rgb values between 0 and 255 to prevent integer overflow
     process (clk)
-    begin
-        if rising_edge(clk) then
+    begin            
+            -- clamp rgb values between 0 and 255 to prevent integer overflow
             if (ir <= 0) then
                 r <= (others => '0');
             elsif (ir >= 255) then
@@ -79,8 +78,7 @@ begin
                 b <= (others => '1');
             else
                 b <= std_logic_vector(to_unsigned(ib, data_width));
-            end if;        
-        end if;
+            end if;
     end process;
 
 end Behavioral;

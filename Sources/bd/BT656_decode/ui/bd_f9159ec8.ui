@@ -1,41 +1,41 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.67587",
-   "Default View_TopLeft":"-169,-204",
+   "Default View_ScaleFactor":"1.76247",
+   "Default View_TopLeft":"524,-3",
    "ExpandedHierarchyInLayout":"",
    "commentid":"",
    "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
 #  -string -flagsOSRD
-preplace port M_AXIS_0 -pg 1 -lvl 6 -x 1460 -y 190 -defaultsOSRD
-preplace port port-id_BT656_clk -pg 1 -lvl 0 -x 0 -y 140 -defaultsOSRD
-preplace port port-id_reset -pg 1 -lvl 0 -x 0 -y 120 -defaultsOSRD
-preplace port port-id_m_clk -pg 1 -lvl 0 -x 0 -y 320 -defaultsOSRD
-preplace portBus BT656 -pg 1 -lvl 0 -x 0 -y 160 -defaultsOSRD
-preplace inst axis_data_fifo_0 -pg 1 -lvl 5 -x 1320 -y 190 -defaultsOSRD
-preplace inst CbYCrY_UpSampler_0 -pg 1 -lvl 2 -x 490 -y 110 -defaultsOSRD
-preplace inst BT656_0 -pg 1 -lvl 1 -x 180 -y 180 -defaultsOSRD
-preplace inst YCbCr_2_RGB_0 -pg 1 -lvl 3 -x 750 -y 110 -defaultsOSRD
-preplace inst axis_converter_0 -pg 1 -lvl 4 -x 1030 -y 170 -defaultsOSRD
-preplace netloc BT656_0_field_id 1 1 3 N 220 N 220 860
-preplace netloc BT656_0_h_blank 1 1 3 330 210 NJ 210 N
-preplace netloc BT656_0_o_active_video 1 1 1 340 120n
-preplace netloc BT656_0_o_data 1 1 1 N 140
-preplace netloc BT656_0_o_data_cb 1 2 1 NJ 120
-preplace netloc BT656_0_o_data_cr 1 2 1 NJ 140
-preplace netloc BT656_0_o_data_y 1 2 1 NJ 100
-preplace netloc BT656_0_o_ycbcr_valid 1 2 2 640 20 880
-preplace netloc BT656_0_v_blank 1 1 3 N 200 620J 230 N
-preplace netloc CAM_LLC_1 1 0 5 20 70 340 20 630 200 880 310 1170
-preplace netloc YCbCr_2_RGB_0_b 1 3 1 N 130
-preplace netloc YCbCr_2_RGB_0_g 1 3 1 N 110
-preplace netloc YCbCr_2_RGB_0_r 1 3 1 N 90
-preplace netloc i_data_0_1 1 0 1 NJ 160
-preplace netloc m_axis_aclk_0_1 1 0 5 N 320 N 320 N 320 N 320 1190
-preplace netloc proc_sys_reset_0_peripheral_aresetn 1 0 5 30 80 330 10 N 10 870 330 1180
-preplace netloc axis_converter_0_M_AXIS_0 1 4 1 N 160
-preplace netloc axis_data_fifo_0_M_AXIS 1 5 1 N 190
-levelinfo -pg 1 0 180 490 750 1030 1320 1460
-pagesize -pg 1 -db -bbox -sgen -130 0 1580 340
+preplace port M_AXIS_0 -pg 1 -lvl 6 -x 1450 -y 180 -defaultsOSRD
+preplace port port-id_reset -pg 1 -lvl 0 -x 0 -y 190 -defaultsOSRD
+preplace port port-id_m_clk -pg 1 -lvl 0 -x 0 -y 310 -defaultsOSRD
+preplace port port-id_BT656_clk -pg 1 -lvl 0 -x 0 -y 170 -defaultsOSRD
+preplace portBus BT656 -pg 1 -lvl 0 -x 0 -y 150 -defaultsOSRD
+preplace inst axis_data_fifo_0 -pg 1 -lvl 5 -x 1310 -y 180 -defaultsOSRD
+preplace inst BT656_0 -pg 1 -lvl 1 -x 180 -y 170 -defaultsOSRD
+preplace inst CbYCrY_UpSampler_0 -pg 1 -lvl 2 -x 510 -y 100 -defaultsOSRD
+preplace inst YCbCr_2_RGB_0 -pg 1 -lvl 3 -x 760 -y 100 -defaultsOSRD
+preplace inst axis_encoder_0 -pg 1 -lvl 4 -x 1030 -y 160 -defaultsOSRD
+preplace netloc BT656_0_field_id 1 1 3 N 210 NJ 210 870J
+preplace netloc BT656_0_h_blank 1 1 3 350 200 NJ 200 NJ
+preplace netloc BT656_0_o_active_video 1 1 1 350 110n
+preplace netloc BT656_0_o_data 1 1 1 N 130
+preplace netloc BT656_0_o_data_cb 1 2 1 N 110
+preplace netloc BT656_0_o_data_cr 1 2 1 N 130
+preplace netloc BT656_0_o_data_y 1 2 1 N 90
+preplace netloc BT656_0_o_ycbcr_valid 1 2 2 640 10 890J
+preplace netloc BT656_0_v_blank 1 1 3 330 220 NJ 220 NJ
+preplace netloc CAM_LLC_1 1 0 5 30 270 340 190 650 190 880 300 1160J
+preplace netloc YCbCr_2_RGB_0_g 1 3 1 N 100
+preplace netloc i_data_0_1 1 0 1 NJ 150
+preplace netloc m_axis_aclk_0_1 1 0 5 NJ 310 NJ 310 NJ 310 NJ 310 1180J
+preplace netloc proc_sys_reset_0_peripheral_aresetn 1 0 5 20 280 360 230 NJ 230 890 320 1170
+preplace netloc YCbCr_2_RGB_0_r 1 3 1 N 80
+preplace netloc YCbCr_2_RGB_0_b 1 3 1 N 120
+preplace netloc axis_data_fifo_0_M_AXIS 1 5 1 N 180
+preplace netloc axis_encoder_0_BT656 1 4 1 N 150
+levelinfo -pg 1 0 180 510 760 1030 1310 1450
+pagesize -pg 1 -db -bbox -sgen -130 0 1570 330
 "
 }
 0

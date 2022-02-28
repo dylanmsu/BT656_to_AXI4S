@@ -51,7 +51,8 @@ architecture Model of BT656_camera_model is
     signal clk : std_logic := '0';
     signal reset : std_logic;
     
-    constant period : time := 10 ns;
+    constant period : time := 37.04 ns;    --13.5MHz
+    constant m_period : time := 88.261 ns; --11.33MHZ
 	
 	impure function encode_pixel(constant row : in integer; constant col : in integer) return std_logic_vector is
 
@@ -187,7 +188,7 @@ begin
     );
 
     CAM_LLC <= not CAM_LLC after period;
-    clk     <= not clk after period*3;
+    clk     <= not clk after m_period;
     reset   <= '0', '1' after 100 ns;
 
 	generate_output : process

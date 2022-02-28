@@ -1,23 +1,21 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x4112C9870D6F5BEF",
+      "boundary_crc": "0xF4A88340E8A4DF7D",
       "device": "xc7z020clg400-1",
       "gen_directory": "../../../../ADV7180_Interface.gen/sources_1/bd/design_1",
       "name": "design_1",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2021.2"
+      "tool_version": "2021.2",
+      "validated": "true"
     },
     "design_tree": {
       "clk_wiz_0": "",
       "ila_0": "",
-      "BT656_decode_wrapper_0": ""
+      "BT656_decode_0": ""
     },
     "ports": {
-      "CAM_LLC": {
-        "direction": "I"
-      },
       "CAM_BT656": {
         "direction": "I",
         "left": "7",
@@ -30,8 +28,49 @@
         "type": "clk",
         "direction": "I",
         "parameters": {
+          "CLK_DOMAIN": {
+            "value": "design_1_sysclk",
+            "value_src": "default"
+          },
           "FREQ_HZ": {
             "value": "100000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "CAM_LLC": {
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "BT656_decode_BT656_clk",
+            "value_src": "default_prop"
+          },
+          "FREQ_HZ": {
+            "value": "27000000",
+            "value_src": "default_prop"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default_prop"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default_prop"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default_prop"
           }
         }
       }
@@ -167,15 +206,26 @@
           }
         }
       },
-      "BT656_decode_wrapper_0": {
-        "vlnv": "xilinx.com:module_ref:BT656_decode_wrapper:1.0",
-        "xci_name": "design_1_BT656_decode_wrapper_0_0",
-        "xci_path": "ip/design_1_BT656_decode_wrapper_0_0/design_1_BT656_decode_wrapper_0_0.xci",
-        "inst_hier_path": "BT656_decode_wrapper_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "BT656_decode_wrapper",
-          "boundary_crc": "0x0"
+      "BT656_decode_0": {
+        "parameters": {
+          "ACTIVE_SIM_BD": {
+            "value": "BT656_decode.bd"
+          },
+          "ACTIVE_SYNTH_BD": {
+            "value": "BT656_decode.bd"
+          },
+          "ENABLE_DFX": {
+            "value": "0"
+          },
+          "LIST_SIM_BD": {
+            "value": "BT656_decode.bd"
+          },
+          "LIST_SYNTH_BD": {
+            "value": "BT656_decode.bd"
+          },
+          "LOCK_PROPAGATE": {
+            "value": "0"
+          }
         },
         "interface_ports": {
           "M_AXIS_0": {
@@ -183,110 +233,175 @@
             "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
             "vlnv": "xilinx.com:interface:axis_rtl:1.0",
             "parameters": {
-              "TDATA_NUM_BYTES": {
-                "value": "3",
-                "value_src": "constant"
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
               },
-              "TDEST_WIDTH": {
-                "value": "0",
-                "value_src": "constant"
-              },
-              "TID_WIDTH": {
-                "value": "0",
-                "value_src": "constant"
-              },
-              "TUSER_WIDTH": {
-                "value": "1",
-                "value_src": "constant"
-              },
-              "HAS_TREADY": {
-                "value": "1",
-                "value_src": "constant"
-              },
-              "HAS_TSTRB": {
-                "value": "0",
-                "value_src": "constant"
+              "FREQ_HZ": {
+                "value": "11329976",
+                "value_src": "ip_prop"
               },
               "HAS_TKEEP": {
                 "value": "0",
-                "value_src": "constant"
+                "value_src": "default"
               },
               "HAS_TLAST": {
                 "value": "1",
-                "value_src": "constant"
+                "value_src": "user_prop"
               },
-              "FREQ_HZ": {
-                "value": "11329976"
-              }
-            },
-            "port_maps": {
-              "TDATA": {
-                "physical_name": "M_AXIS_0_tdata",
-                "direction": "O",
-                "left": "23",
-                "right": "0"
+              "HAS_TREADY": {
+                "value": "1",
+                "value_src": "default"
               },
-              "TLAST": {
-                "physical_name": "M_AXIS_0_tlast",
-                "direction": "O"
+              "HAS_TSTRB": {
+                "value": "0",
+                "value_src": "default"
               },
-              "TUSER": {
-                "physical_name": "M_AXIS_0_tuser",
-                "direction": "O",
-                "left": "0",
-                "right": "0"
+              "INSERT_VIP": {
+                "value": "0",
+                "value_src": "default"
               },
-              "TVALID": {
-                "physical_name": "M_AXIS_0_tvalid",
-                "direction": "O"
+              "LAYERED_METADATA": {
+                "value": "undef",
+                "value_src": "const_prop"
               },
-              "TREADY": {
-                "physical_name": "M_AXIS_0_tready",
-                "direction": "I"
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "TDATA_NUM_BYTES": {
+                "value": "3",
+                "value_src": "user_prop"
+              },
+              "TDEST_WIDTH": {
+                "value": "0",
+                "value_src": "default"
+              },
+              "TID_WIDTH": {
+                "value": "0",
+                "value_src": "default"
+              },
+              "TUSER_WIDTH": {
+                "value": "1",
+                "value_src": "user_prop"
               }
             }
           }
         },
         "ports": {
+          "BT656_clk": {
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "reset",
+                "value_src": "strong"
+              },
+              "CLK_DOMAIN": {
+                "value": "BT656_decode_BT656_clk",
+                "value_src": "strong"
+              },
+              "FREQ_HZ": {
+                "value": "27000000",
+                "value_src": "strong"
+              },
+              "FREQ_TOLERANCE_HZ": {
+                "value": "0",
+                "value_src": "strong"
+              },
+              "INSERT_VIP": {
+                "value": "0",
+                "value_src": "strong"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "strong"
+              }
+            }
+          },
           "BT656": {
             "direction": "I",
             "left": "7",
             "right": "0"
           },
-          "BT656_clk": {
-            "type": "clk",
-            "direction": "I"
+          "reset": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "INSERT_VIP": {
+                "value": "0",
+                "value_src": "strong"
+              },
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "strong"
+              }
+            }
           },
           "m_clk": {
             "type": "clk",
-            "direction": "I"
-          },
-          "reset": {
-            "type": "rst",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_BUSIF": {
+                "value": "M_AXIS_0",
+                "value_src": "strong"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "11329976",
+                "value_src": "ip_prop"
+              },
+              "FREQ_TOLERANCE_HZ": {
+                "value": "0",
+                "value_src": "strong"
+              },
+              "INSERT_VIP": {
+                "value": "0",
+                "value_src": "strong"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          }
+        },
+        "post_compiled_compname": "BT656_decode_inst_0",
+        "architecture": "zynq",
+        "variant_info": {
+          "BT656_decode.bd": {
+            "scoped_diagram": "BT656_decode_inst_0.bd",
+            "design_checksum": "0xBA66D8",
+            "ref_name": "BT656_decode",
+            "ref_subinst_path": "design_1_BT656_decode_0",
+            "ref_type": "Block Design",
+            "source_type": "all",
+            "active": "all"
           }
         }
       }
     },
     "interface_nets": {
-      "BT656_decode_wrapper_0_M_AXIS_0": {
+      "BT656_decode_0_M_AXIS_0": {
         "interface_ports": [
-          "BT656_decode_wrapper_0/M_AXIS_0",
+          "BT656_decode_0/M_AXIS_0",
           "ila_0/SLOT_0_AXIS"
         ]
       }
     },
     "nets": {
+      "CAM_BT656_1": {
+        "ports": [
+          "CAM_BT656",
+          "BT656_decode_0/BT656"
+        ]
+      },
       "CAM_LLC_1": {
         "ports": [
           "CAM_LLC",
-          "BT656_decode_wrapper_0/BT656_clk"
-        ]
-      },
-      "CAM_Y_1": {
-        "ports": [
-          "CAM_BT656",
-          "BT656_decode_wrapper_0/BT656"
+          "BT656_decode_0/BT656_clk"
         ]
       },
       "clk_in1_0_1": {
@@ -299,13 +414,13 @@
         "ports": [
           "clk_wiz_0/clk_out1",
           "ila_0/clk",
-          "BT656_decode_wrapper_0/m_clk"
+          "BT656_decode_0/m_clk"
         ]
       },
-      "rst_ps7_0_50M_peripheral_aresetn": {
+      "reset_1": {
         "ports": [
           "reset",
-          "BT656_decode_wrapper_0/reset"
+          "BT656_decode_0/reset"
         ]
       }
     }
