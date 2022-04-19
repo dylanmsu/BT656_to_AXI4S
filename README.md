@@ -23,13 +23,13 @@ active pixels/line = 720Y + 720C = 1440 clks <br>
 ![block-diagram](./img/Block-Diagram-BT656-V1.1.png)
 
 ### Detailed overview
-- **BT656_0** parses the [AV codes](https://techdocs.altium.com/display/FPGA/ITU-R+BT.656+Protocol) from the datastream comming from the video decoder. It outputs the h-blank, v-blank, active and field signals used by later blocks.
+- **BT656_0** parses the [AV codes](https://techdocs.altium.com/display/FPGA/ITU-R+BT.656+Protocol) from the datastream comming from the BT656 video protocol. It outputs the h-blank, v-blank, active and field signals used by later blocks.
 
-- **CbYCrY_UpSampler_0** converts the 4:2:2 encoding to 4:4:4
+- **CbYCrY_UpSampler_0** converts the compressed 4:2:2 (YCb,YCr) encoding to a decompressed 4:4:4 (YCbCr,YCbCr) format.
 
 - **YCbCr_2_RGB_0** converts the 4:4:4 YCbCr color space to 4:4:4 RGB
 
-- **axis_converter_0** this block servers two purposes. It firstly generates the "end-of-line" and "start-of-frame" signals used by the AXI4-Stream protocol. The second purpose is to align all signals into an actual valid AXI4-Stream interface.
+- **axis_converter_0** this block servers two purposes. It firstly generates the "end-of-line" and "start-of-frame" signals used by the AXI4-Stream protocol. The second purpose is to align all signals into an actual valid AXI4-Stream. 
 
 - **axis_data_fifo_0** is a Xilinx IP used to buffer the outgoing video stream.
 
