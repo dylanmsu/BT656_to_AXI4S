@@ -7,8 +7,6 @@
 ## Setup
 In my testing i used an [FCB-EX1010](https://www.image-sensing-solutions.eu/fcb_ex1010_p.html) analog camera block as video source and connected it to [this analog video decoder board i designed](https://github.com/dylanmsu/ADV7180_to_Pmod) . As the FPGA i used the Digilent Zybo Z7-20 development board, but any board with three pmod ports in a row should also work.
 
-Send me a message if you want the video interface board and i'll ship you one.
-
 ## Working block diagram
 ### Top level
 ![top](./img/Block-Diagram-Top.png)
