@@ -31,5 +31,10 @@ active pixels/line = 720Y + 720C = 1440 clks <br>
 
 - **axis_data_fifo_0** is a Xilinx IP used to buffer the outgoing video stream.
 
+## result
+After capturing the AXI4-Stream signals using an ILA in vivado, and decoding the signals using the included python script, this is the result. 
+![image result](./my.png)
+The image appears to have a low resolution in the y-axis because the camera block i used outputs interlaced video. There is also ghosting present, this may be caused by the non-ideal design of the interface board.
+
 ## Disclaimer
 This is in no way a rigorously tested design and sould NOT be used in an actual implementation. This is a personal project to learn more about VHDL and video processing. I got it to work on my specific setup and i cannot guarantee that it will work on other hardware.
