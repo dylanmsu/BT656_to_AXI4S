@@ -37,7 +37,7 @@ entity BT656 is
 end BT656;
 
 architecture Behavioral of BT656 is
-    constant fifo_length : integer := 4;  -- needs to be 4
+    constant fifo_length : integer := 4;  -- AV code length
     
     type fifo is array (0 to (fifo_length - 1)) of std_logic_vector(7 downto 0);
     signal data_fifo : fifo;
